@@ -49,7 +49,7 @@ export default class Twitch extends Component {
       this.player.addEventListener(PLAYING, this.props.onPlay)
       this.player.addEventListener(PAUSE, this.props.onPause)
       this.player.addEventListener(ENDED, this.props.onEnded)
-      this.player.addEventListener(SEEK, this.props.onSeek)
+      this.player.addEventListener(SEEK, ({ position }) => this.props.onSeek(position))
 
       // Prevent weird isLoading behaviour when streams are offline
       this.player.addEventListener(ONLINE, this.props.onLoaded)
